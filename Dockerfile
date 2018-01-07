@@ -5,5 +5,5 @@ ENV LANG C.UTF-8
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
 RUN mkdir ${APP_HOME}
-WORKDIR ${APP_HOME}
+WORKDIR ${APP_HOME}/issues
 ADD . /${APP_HOME}
