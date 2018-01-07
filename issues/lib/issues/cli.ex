@@ -26,7 +26,7 @@ defmodule Issues.CLI do
       -> :help
 
     { _, [ user, project, count ], _ }
-      -> { user, project, count }
+      -> { user, project, String.to_integer(count) }
 
     { _, [ user, project ], _ }
       -> { user, project, @defalt_count }
