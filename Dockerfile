@@ -1,10 +1,16 @@
 FROM elixir:1.2
 
-ENV APP_HOME /myapp
+ENV APP_ROOT /myapp
+ENV APP_HONE issues
 ENV LANG C.UTF-8
 
 RUN rm /bin/sh && ln -s /bin/bash /bin/sh
-RUN mkdir ${APP_HOME}
-WORKDIR ${APP_HOME}/issues
+RUN mkdir ${APP_ROOT}
+RUN mkdir ${APP_ROOT}/${APP_HONE}
+WORKDIR ${APP_ROOT}/${APP_HONE}
+
+ADD . /${APP_ROOT}
+
 RUN yes | mix local.hex
-ADD . /${APP_HOME}
+RUN yes | mix deps.get
+RUN yes | mix compile
