@@ -28,8 +28,8 @@ defmodule Issues.Mixfile do
   # Type "mix help deps" for more examples and options
   defp deps do
     [
-      httpoison: "~> 0.8",
-      poison:    "~> 1.5"
+      httpoison: "~> 1.0",
+      poison:    "~> 3.1"
     ]
   end
 end
