@@ -29,10 +29,9 @@ defmodule Issues.TableFormatter do
   list of columns to extract
 
   ## Example
-      iex(1)> list = [ Enum.into([ { "a" , "1" }, { "b", "2" }, { "c", "3" } ], %{}),
-      ...(1)>           Enum.into([ { "a" , "4" }, { "b", "5" }, { "c", "6" } ], %{})]
-      [%{"a" => "1", "b" => "2", "c" => "3"}, %{"a" => "4", "b" => "5", "c" => "6"}]
-      iex(2)> Issues.TableFormatter.split_into_columns(list, [ "a", "b", "c" ])
+      iex> list = [ Enum.into([ { "a" , "1" }, { "b", "2" }, { "c", "3" } ], %{}),
+      ...>           Enum.into([ { "a" , "4" }, { "b", "5" }, { "c", "6" } ], %{})]
+      iex> Issues.TableFormatter.split_into_columns(list, [ "a", "b", "c" ])
       [["1", "4"], ["2", "5"], ["3", "6"]]
   """
   def split_into_columns(rows, headers) do
@@ -44,9 +43,9 @@ defmodule Issues.TableFormatter do
   @doc """
   Return a binary (string) version of our parameter.
   ## Example
-      iex(3)> Issues.TableFormatter.printable("a")
+      iex> Issues.TableFormatter.printable("a")
       "a"
-      iex(4)> Issues.TableFormatter.printable(99)
+      iex> Issues.TableFormatter.printable(99)
       "99"
   """
   def printable(str) when is_binary(str), do: str
@@ -57,9 +56,9 @@ defmodule Issues.TableFormatter do
   a column, return a list containing the maximum width of each column
 
   ## Example
-      iex(5)> data = [ [ "cat", "wombat", "elk" ], [ "mongoose", "ant", "gnu" ] ]
+      iex> data = [ [ "cat", "wombat", "elk" ], [ "mongoose", "ant", "gnu" ] ]
       [["cat", "wombat", "elk"], ["mongoose", "ant", "gnu"]]
-      iex(6)> Issues.TableFormatter.widths_of(data)
+      iex> Issues.TableFormatter.widths_of(data)
       [6, 8]
   """
   def widths_of(columns) do
@@ -69,9 +68,9 @@ defmodule Issues.TableFormatter do
   @doc """
   Return a format string that hard codes the widths of a set of columns.
   We put `" | "` between each column.
-  iex(9)> widths = [5,6,99]
+  iex> widths = [5,6,99]
   [5, 6, 99]
-  iex(10)> Issues.TableFormatter.format_for(widths)
+  iex> Issues.TableFormatter.format_for(widths)
   "~-5s | ~-6s | ~-99s~n"
   """
   def format_for(column_widths) do
@@ -83,9 +82,9 @@ defmodule Issues.TableFormatter do
   hyphens, with + signs where the vertical bar between the columns goes.
 
   ## Example
-      iex(7)> widths = [5, 6, 9]
+      iex> widths = [5, 6, 9]
       [5, 6, 9]
-      iex(8)> Issues.TableFormatter.separator(widths)
+      iex> Issues.TableFormatter.separator(widths)
       "------+--------+----------"
   """
   def separator(column_widths) do
