@@ -1,4 +1,4 @@
-FROM elixir:1.2
+FROM elixir
 
 ENV APP_ROOT /myapp
 ENV APP_HONE issues
@@ -12,5 +12,4 @@ WORKDIR ${APP_ROOT}/${APP_HONE}
 ADD . /${APP_ROOT}
 
 RUN yes | mix local.hex
-RUN yes | mix deps.get
-RUN yes | mix compile
+
