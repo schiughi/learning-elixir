@@ -12,4 +12,4 @@ WORKDIR ${APP_ROOT}/${APP_HONE}
 ADD . /${APP_ROOT}
 
 RUN yes | mix local.hex
-
+RUN yes | mix local.rebar
